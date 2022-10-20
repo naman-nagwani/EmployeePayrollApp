@@ -30,6 +30,11 @@ public class EmployeePayrollService implements IEmployeePayrollService{
     }
 
     @Override
+    public List<EmployeePayrollData> getEmployeesByDepartment(String department) {
+        return employeePayrollRepository.findEmployeePayrollDataByDepartment(department);
+    }
+
+    @Override
     public EmployeePayrollData createEmployeePayrollData(EmployeePayrollDTO empPayrollDTO) {
         EmployeePayrollData empData = new EmployeePayrollData(empPayrollDTO);
         return employeePayrollRepository.save(empData);
